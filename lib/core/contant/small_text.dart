@@ -1,20 +1,27 @@
-//small text
 import 'package:flutter/material.dart';
 import 'package:new_project_1/core/contant/app_color.dart';
 
 class SmallText extends StatelessWidget {
-  const SmallText({super.key, required this.smalltext, required this.fontSize});
+  const SmallText(
+      {super.key,
+      required this.smalltext,
+      this.textColor,
+      this.textSize,
+      this.fontWeight});
   final String smalltext;
-  final String fontSize;
+  final Color? textColor;
+  final double? textSize;
+  final FontWeight? fontWeight;
+
   @override
   Widget build(BuildContext context) {
     return Text(
       smalltext,
-      style: const TextStyle(
-        color: AppColors.smalltextColor,
+      style: TextStyle(
+        color: textColor ?? AppColors.smalltextColor,
         fontFamily: 'Inter',
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
+        fontSize: textSize ?? 16,
+        fontWeight: fontWeight ?? FontWeight.w400,
       ),
     );
   }
