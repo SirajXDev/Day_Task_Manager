@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_project_1/core/contant/app_color.dart';
 
 class MyText extends StatelessWidget {
@@ -20,7 +21,7 @@ class MyText extends StatelessWidget {
       style: TextStyle(
         color: textColor ?? AppColors.bigtextColor,
         fontFamily: 'Inter',
-        fontSize: textSize ?? 18,
+        fontSize: textSize ?? 18.sp,
         fontWeight: fontWeight ?? FontWeight.w600,
       ),
     );
