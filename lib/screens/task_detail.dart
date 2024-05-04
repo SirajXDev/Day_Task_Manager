@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_project_1/core/contant/app_color.dart';
 import 'package:new_project_1/core/contant/my_text.dart';
+import 'package:new_project_1/screens/message_screen.dart';
 
 class TaskDetailScreen extends StatelessWidget {
   const TaskDetailScreen({super.key});
@@ -220,11 +221,16 @@ class TaskDetailScreen extends StatelessWidget {
             height: 57,
             width: 318,
             color: AppColors.buttonColor,
-            child: const Center(
-                child: MyText(
-              mytext: 'Add Task',
-              textColor: AppColors.buttontextColor,
-            )),
+            child:  Center(
+                child: GestureDetector(
+                   onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) =>const  MessageScreen())));
+            },
+                  child: const MyText(
+                                mytext: 'Add Task',
+                                textColor: AppColors.buttontextColor,
+                              ),
+                )),
           ),
         ),
       ),

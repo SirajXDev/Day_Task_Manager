@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_project_1/core/utils/app_buttons.dart';
 import 'package:new_project_1/core/contant/app_color.dart';
+import 'package:new_project_1/screens/signup_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -34,7 +35,11 @@ class SplashScreen extends StatelessWidget {
            child: Image(image: AssetImage('assets/images/text1.png')),
          ),
          SizedBox(height: 64.h,),
-          const InkWell(child:  AppButtons(text: 'Let’s Start',),),
+           InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => SignUpScreen())));
+            },
+            child:   const AppButtons(text: 'Let’s Start',),),
          SizedBox(height: 40.h,),
        
        ],),

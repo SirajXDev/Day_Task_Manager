@@ -4,6 +4,7 @@ import 'package:new_project_1/core/contant/app_color.dart';
 import 'package:new_project_1/core/contant/my_text.dart';
 import 'package:new_project_1/core/contant/small_text.dart';
 import 'package:new_project_1/core/utils/bottom_navigation.dart';
+import 'package:new_project_1/screens/task_detail.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                     Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SmallText(
@@ -46,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               //search bar
-               SizedBox(
+              SizedBox(
                 height: 35.h,
               ),
               Padding(
@@ -85,10 +86,10 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 height: 30.h,
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.only(
                   left: 22,
                   right: 22,
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 height: 30.h,
               ),
 
@@ -118,120 +119,130 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      height: 183.h,
-                      width: 175.w,
-                      margin: EdgeInsets.only(
-                          left: index == 0 ? 22 : 3.5,
-                          right: index == 3 ? 22 : 3.5),
-                      color: index == 0
-                          ? AppColors.buttonColor
-                          : index == 1
-                              ? Colors.blue
-                              : index == 2
-                                  ? Colors.teal
-                                  : Colors.yellowAccent,
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                             MyText(
-                              mytext: 'Real Estate Website\n Design',
-                              textColor: AppColors.buttontextColor,
-                              textSize: 21.sp,
-                            ),
-                             SizedBox(
-                              height: 16.h,
-                            ),
-                            //team member section
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyText(
-                                  mytext: 'Team members',
-                                  textColor: const Color(0xff212832),
-                                  textSize: 11.sp,
-                                ),
-                                SizedBox(
-                                  width: 60.h,
-                                  height: 20.w,
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        left: 0,
-                                        child: CircleAvatar(
-                                          backgroundImage: const AssetImage(
-                                              'assets/images/Ellipse 32.png'),
-                                          radius: 10.r,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 10,
-                                        child: CircleAvatar(
-                                          backgroundImage: const AssetImage(
-                                              'assets/images/Ellipse 34.png'),
-                                          radius: 10.r,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 20,
-                                        child: CircleAvatar(
-                                          backgroundImage: const AssetImage(
-                                              'assets/images/Ellipse 35.png'),
-                                          radius: 10.r,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 30,
-                                        child: CircleAvatar(
-                                          backgroundImage: const AssetImage(
-                                              'assets/images/Ellipse 36.png'),
-                                          radius: 10.r,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 40,
-                                        child: CircleAvatar(
-                                          backgroundImage: const AssetImage(
-                                              'assets/images/Ellipse 37.png'),
-                                          radius: 10.r,
-                                        ),
-                                      ),
-                                    ],
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    const TaskDetailScreen())));
+                      },
+                      child: Container(
+                        height: 183.h,
+                        width: 175.w,
+                        margin: EdgeInsets.only(
+                            left: index == 0 ? 22 : 3.5,
+                            right: index == 3 ? 22 : 3.5),
+                        color: index == 0
+                            ? AppColors.buttonColor
+                            : index == 1
+                                ? Colors.blue
+                                : index == 2
+                                    ? Colors.teal
+                                    : Colors.yellowAccent,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              MyText(
+                                mytext: 'Real Estate Website\n Design',
+                                textColor: AppColors.buttontextColor,
+                                textSize: 21.sp,
+                              ),
+                              SizedBox(
+                                height: 16.h,
+                              ),
+                              //team member section
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MyText(
+                                    mytext: 'Team members',
+                                    textColor: const Color(0xff212832),
+                                    textSize: 11.sp,
                                   ),
-                                )
-                              
-                              ],
-                            ),
-                             SizedBox(
-                              height: 2.h,
-                            ),
-                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyText(
-                                  mytext: 'Completed',
-                                  textSize: 11.sp,
-                                  fontWeight: FontWeight.w400,
-                                  textColor: const Color(0xff212832),
-                                ),
-                                SmallText(
-                                  smalltext: '100%',
-                                  textSize: 9.sp,
-                                  textColor: const Color(0xff000000),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ],
-                            ),
-                            Container(
-                              height: 6.h,
-                              width: 163.w,
-                              decoration:  BoxDecoration(
-                                  color: const Color(0xff212832),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8.r))),
-                            ),
-                          ],
+                                  SizedBox(
+                                    width: 60.h,
+                                    height: 20.w,
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                          left: 0,
+                                          child: CircleAvatar(
+                                            backgroundImage: const AssetImage(
+                                                'assets/images/Ellipse 32.png'),
+                                            radius: 10.r,
+                                          ),
+                                        ),
+                                        Positioned(
+                                          left: 10,
+                                          child: CircleAvatar(
+                                            backgroundImage: const AssetImage(
+                                                'assets/images/Ellipse 34.png'),
+                                            radius: 10.r,
+                                          ),
+                                        ),
+                                        Positioned(
+                                          left: 20,
+                                          child: CircleAvatar(
+                                            backgroundImage: const AssetImage(
+                                                'assets/images/Ellipse 35.png'),
+                                            radius: 10.r,
+                                          ),
+                                        ),
+                                        Positioned(
+                                          left: 30,
+                                          child: CircleAvatar(
+                                            backgroundImage: const AssetImage(
+                                                'assets/images/Ellipse 36.png'),
+                                            radius: 10.r,
+                                          ),
+                                        ),
+                                        Positioned(
+                                          left: 40,
+                                          child: CircleAvatar(
+                                            backgroundImage: const AssetImage(
+                                                'assets/images/Ellipse 37.png'),
+                                            radius: 10.r,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  MyText(
+                                    mytext: 'Completed',
+                                    textSize: 11.sp,
+                                    fontWeight: FontWeight.w400,
+                                    textColor: const Color(0xff212832),
+                                  ),
+                                  SmallText(
+                                    smalltext: '100%',
+                                    textSize: 9.sp,
+                                    textColor: const Color(0xff000000),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 6.h,
+                                width: 163.w,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff212832),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(8.r))),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -239,10 +250,10 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               //ongoning text section
-               SizedBox(
+              SizedBox(
                 height: 30.h,
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,7 +270,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-               SizedBox(
+              SizedBox(
                 height: 15.h,
               ),
               SizedBox(
@@ -332,8 +343,7 @@ class HomeScreen extends StatelessWidget {
                                         height: 58,
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
-                                          color: Colors
-                                              .blue, 
+                                          color: Colors.blue,
                                         ),
                                       ),
                                     ],
@@ -359,10 +369,11 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-
-      
       ),
-      bottomNavigationBar: const SizedBox(height: 82,child: CustomBottomNavigation(),),
+      bottomNavigationBar: const SizedBox(
+        height: 82,
+        child: CustomBottomNavigation(),
+      ),
     );
   }
 }

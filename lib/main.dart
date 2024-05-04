@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_project_1/screens/message_screen.dart';
+import 'package:new_project_1/screens/splash_screen.dart';
+
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home:const   MessageScreen(),
+        home:   const SplashScreen(),
       
       ),
     );

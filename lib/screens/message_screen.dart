@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_project_1/core/contant/app_color.dart';
 import 'package:new_project_1/core/contant/my_text.dart';
 import 'package:new_project_1/core/utils/bottom_navigation.dart';
+import 'package:new_project_1/screens/chat_screen.dart';
 
 class MessageScreen extends StatelessWidget {
   const MessageScreen({super.key});
@@ -93,11 +94,16 @@ class MessageScreen extends StatelessWidget {
                 width: 175.w,
                 height: 57.h,
                 color: AppColors.buttonColor,
-                child: const Center(
-                    child: MyText(
-                  mytext: 'Start chat',
-                  textColor: AppColors.buttontextColor,
-                )),
+                child:  Center(
+                    child: GestureDetector(
+                       onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => const ChateScreen())));
+            },
+                      child: const MyText(
+                                        mytext: 'Start chat',
+                                        textColor: AppColors.buttontextColor,
+                                      ),
+                    )),
               ),
             )
           ],

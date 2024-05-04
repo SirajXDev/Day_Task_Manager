@@ -4,6 +4,7 @@ import 'package:new_project_1/core/contant/app_color.dart';
 import 'package:new_project_1/core/contant/my_text.dart';
 import 'package:new_project_1/core/contant/small_text.dart';
 import 'package:new_project_1/core/utils/app_buttons.dart';
+import 'package:new_project_1/screens/home_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -192,7 +193,13 @@ class SignUpScreen extends StatelessWidget {
              SizedBox(
               height: 50.h,
             ),
-            const AppButtons(text: 'Sign Up'),
+            GestureDetector(
+              onTap: () {
+                
+              Navigator.push(context, MaterialPageRoute(builder: ((context) =>  const HomeScreen())));
+            
+              },
+              child: const AppButtons(text: 'Sign Up')),
              SizedBox(
               height: 35.h,
             ),
